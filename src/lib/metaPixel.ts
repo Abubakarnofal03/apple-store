@@ -12,13 +12,13 @@ declare global {
  * @param productId - The product ID
  * @param productName - The product name
  * @param price - The product price
- * @param currency - The currency code (default: PKR)
+ * @param currency - The currency code (default: AED)
  */
 export const trackAddToCart = (
   productId: string,
   productName: string,
   price: number,
-  currency: string = 'PKR'
+  currency: string = 'AED'
 ) => {
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', 'AddToCart', {
@@ -44,12 +44,12 @@ export const trackInitiateCheckout = () => {
 /**
  * Track Purchase event (Cash on Delivery)
  * @param totalAmount - The total order amount
- * @param currency - The currency code (default: PKR)
+ * @param currency - The currency code (default: AED)
  * @param orderId - Optional order ID for reference
  */
 export const trackPurchase = (
   totalAmount: number,
-  currency: string = 'PKR',
+  currency: string = 'AED',
   orderId?: string
 ) => {
   if (typeof window !== 'undefined' && window.fbq) {

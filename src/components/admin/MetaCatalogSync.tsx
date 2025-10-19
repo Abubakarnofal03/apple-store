@@ -153,7 +153,7 @@ export const MetaCatalogSync = () => {
             <div className="text-muted-foreground">Brand Name:</div>
             <div>The Shopping Cart</div>
             <div className="text-muted-foreground">Currency:</div>
-            <div>PKR</div>
+            <div>AED</div>
           </div>
         </div>
       </CardContent>

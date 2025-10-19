@@ -60,7 +60,7 @@ const OrderConfirmation = () => {
         hasTrackedPurchase.current = true;
         
         // Track Meta Pixel Purchase
-        trackMetaPurchase(order.total_amount, 'PKR', order.id);
+  trackMetaPurchase(order.total_amount, 'AED', order.id);
         
         // Track TikTok Pixel CompletePayment
         const tiktokItems = orderItems.map(item => ({

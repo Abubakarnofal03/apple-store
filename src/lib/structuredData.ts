@@ -47,7 +47,7 @@ export const productSchema = (product: {
   "offers": {
     "@type": "Offer",
     "url": typeof window !== 'undefined' ? window.location.href : '',
-    "priceCurrency": "PKR",
+  "priceCurrency": "AED",
     "price": product.price,
     "availability": product.stock_quantity && product.stock_quantity > 0 
       ? "https://schema.org/InStock" 

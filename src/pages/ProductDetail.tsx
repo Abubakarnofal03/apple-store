@@ -432,7 +432,7 @@ const ProductDetail = ({ key }: { key?: string }) => {
                     </div>
                    ) : (
                     <div>
-                      <p className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-leather-gold to-leather-cognac bg-clip-text text-transparent">{formatPrice(totalPrice)}</p>
+                      <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-leather-gold">{formatPrice(totalPrice)}</p>
                       {quantity > 1 && (
                         <p className="text-sm text-muted-foreground mt-1">
                           {formatPrice(displayPrice)} × {quantity}

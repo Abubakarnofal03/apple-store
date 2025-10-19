@@ -12,13 +12,13 @@ declare global {
  * @param productId - The product ID
  * @param productName - The product name
  * @param price - The product price
- * @param currency - The currency code (default: PKR)
+ * @param currency - The currency code (default: AED)
  */
 export const trackViewContent = (
   productId: string,
   productName: string,
   price: number,
-  currency: string = 'PKR'
+  currency: string = 'AED'
 ) => {
   if (typeof window !== 'undefined' && window.ttq && typeof window.ttq.track === 'function') {
     try {
@@ -40,13 +40,13 @@ export const trackViewContent = (
  * @param productId - The product ID
  * @param productName - The product name
  * @param price - The product price
- * @param currency - The currency code (default: PKR)
+ * @param currency - The currency code (default: AED)
  */
 export const trackAddToCart = (
   productId: string,
   productName: string,
   price: number,
-  currency: string = 'PKR'
+  currency: string = 'AED'
 ) => {
   if (typeof window !== 'undefined' && window.ttq && typeof window.ttq.track === 'function') {
     try {
@@ -68,12 +68,12 @@ export const trackAddToCart = (
  * Track InitiateCheckout event
  * @param total - The total cart value
  * @param items - Array of cart items
- * @param currency - The currency code (default: PKR)
+ * @param currency - The currency code (default: AED)
  */
 export const trackInitiateCheckout = (
   total: number,
   items: Array<{ id: string; quantity: number; price: number }>,
-  currency: string = 'PKR'
+  currency: string = 'AED'
 ) => {
   if (typeof window !== 'undefined' && window.ttq && typeof window.ttq.track === 'function') {
     try {
@@ -98,13 +98,13 @@ export const trackInitiateCheckout = (
  * @param orderId - The order ID
  * @param totalAmount - The total order amount
  * @param items - Array of order items
- * @param currency - The currency code (default: PKR)
+ * @param currency - The currency code (default: AED)
  */
 export const trackCompletePayment = (
   orderId: string,
   totalAmount: number,
   items: Array<{ id: string; quantity: number; price: number }>,
-  currency: string = 'PKR'
+  currency: string = 'AED'
 ) => {
   if (typeof window !== 'undefined' && window.ttq && typeof window.ttq.track === 'function') {
     try {
