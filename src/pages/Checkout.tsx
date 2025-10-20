@@ -71,7 +71,7 @@ const Checkout = () => {
       if (!user) return [];
       const { data, error } = await supabase
         .from('cart_items')
-        .select('*, products(*)')
+        .select('*, products(*), product_colors(*)')
         .eq('user_id', user.id);
       if (error) throw error;
       return data;
@@ -99,7 +99,7 @@ const Checkout = () => {
   // Calculate total with sales applied
   const total = user 
     ? cartItems?.reduce((sum, item) => {
-        const price = item.variation_price || item.products?.price || 0;
+        const price = item.color_price || item.variation_price || item.products?.price || 0;
         const productSale = activeSales?.find(
           sale => !sale.is_global && sale.product_id === item.product_id
         ) || null;
@@ -108,7 +108,7 @@ const Checkout = () => {
         return sum + finalPrice * item.quantity;
       }, 0) || 0
     : guestCart.reduce((sum, item) => {
-        const price = item.variation_price || item.product_price;
+        const price = item.color_price || item.variation_price || item.product_price;
         const productSale = activeSales?.find(
           sale => !sale.is_global && sale.product_id === item.product_id
         ) || null;
@@ -204,8 +204,8 @@ const Checkout = () => {
 
       const orderItems = items.map((item: any) => {
         const originalPrice = user 
-          ? (item.variation_price || item.products?.price || 0)
-          : (item.variation_price || item.product_price);
+          ? (item.color_price || item.variation_price || item.products?.price || 0)
+          : (item.color_price || item.variation_price || item.product_price);
         const productId = user ? item.product_id : item.product_id;
         
         // Apply sales when storing order items
@@ -223,6 +223,10 @@ const Checkout = () => {
           variation_id: item.variation_id || null,
           variation_name: item.variation_name || null,
           variation_price: item.variation_price || null,
+          color_id: item.color_id || null,
+          color_name: item.color_name || null,
+          color_code: item.color_code || null,
+          color_price: item.color_price || null,
         };
       });
 
@@ -435,8 +439,8 @@ const Checkout = () => {
                     {items?.map((item: any, idx: number) => {
                       const isGuest = !user;
                       const originalPrice = isGuest 
-                        ? (item.variation_price || item.product_price)
-                        : (item.variation_price || item.products?.price || 0);
+                        ? (item.color_price || item.variation_price || item.product_price)
+                        : (item.color_price || item.variation_price || item.products?.price || 0);
                       const productId = isGuest ? item.product_id : item.product_id;
                       
                       // Calculate sale price for each item
@@ -450,6 +454,7 @@ const Checkout = () => {
                         name: isGuest ? item.product_name : item.products?.name,
                         price: finalPrice,
                         variationName: item.variation_name,
+                        colorName: item.color_name,
                       };
 
                       return (
@@ -458,6 +463,9 @@ const Checkout = () => {
                             {productData.name}
                             {productData.variationName && (
                               <span className="text-xs text-muted-foreground"> ({productData.variationName})</span>
+                            )}
+                            {productData.colorName && (
+                              <span className="text-xs text-muted-foreground"> - {productData.colorName}</span>
                             )}
                             {' × '}{item.quantity}
                           </span>

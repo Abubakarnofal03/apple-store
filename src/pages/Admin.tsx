@@ -319,9 +319,9 @@ const Admin = () => {
       const orderItems = order.order_items || [];
       return orderItems.map((item: any) => {
         const product = products?.find(p => p.id === item.product_id);
-        const itemTitle = item.variation_name 
-          ? `${product?.name || 'N/A'} - ${item.variation_name}`
-          : product?.name || 'N/A';
+        const variationInfo = item.variation_name ? ` - ${item.variation_name}` : '';
+        const colorInfo = item.color_name ? ` - ${item.color_name}` : '';
+        const itemTitle = `${product?.name || 'N/A'}${variationInfo}${colorInfo}`;
         
         return {
           ref_no: order.order_number,
@@ -441,6 +441,7 @@ const Admin = () => {
     const exportData = filteredOrders.flatMap((order) => {
       return order.order_items?.map((item: any, index: number) => {
         const variationInfo = item.variation_name ? ` (${item.variation_name})` : '';
+        const colorInfo = item.color_name ? ` (${item.color_name})` : '';
         return {
           'Order ID': order.order_number,
           'Order Date': format(new Date(order.created_at), 'PPP'),
@@ -450,7 +451,7 @@ const Admin = () => {
           'Phone Number': order.phone,
           'Address': order.shipping_address,
           'City': order.shipping_city,
-          'Product Name': (item.products?.name || 'N/A') + variationInfo,
+          'Product Name': (item.products?.name || 'N/A') + variationInfo + colorInfo,
           'Quantity': item.quantity,
           'Price': item.price,
           'Item Total': item.price * item.quantity,
@@ -687,6 +688,17 @@ const Admin = () => {
                                 {item.variation_name && (
                                   <Badge variant="outline" className="text-xs">
                                     {item.variation_name}
+                                  </Badge>
+                                )}
+                                {item.color_name && (
+                                  <Badge variant="outline" className="text-xs flex items-center gap-1">
+                                    {item.color_code && (
+                                      <span 
+                                        className="inline-block w-3 h-3 rounded-full border" 
+                                        style={{ backgroundColor: item.color_code }}
+                                      />
+                                    )}
+                                    {item.color_name}
                                   </Badge>
                                 )}
                               </div>

@@ -89,7 +89,7 @@ export function ProductDialog({ open, onOpenChange, product, categories, onSucce
                 id: c.id,
                 name: c.name,
                 color_code: c.color_code,
-                price: c.price.toString(),
+                price: c.price ? c.price.toString() : "",
                 quantity: c.quantity.toString(),
                 sort_order: c.sort_order,
                 apply_sale: c.apply_sale ?? true,
@@ -191,12 +191,12 @@ export function ProductDialog({ open, onOpenChange, product, categories, onSucce
       // Insert colors if any
       if (colors.length > 0) {
         const colorsData = colors
-          .filter(c => c.name && c.price && c.color_code)
+          .filter(c => c.name && c.color_code)
           .map((c, index) => ({
             product_id: productId,
             name: c.name,
             color_code: c.color_code,
-            price: parseFloat(c.price),
+            price: c.price && parseFloat(c.price) > 0 ? parseFloat(c.price) : null,
             quantity: parseInt(c.quantity) || 0,
             sort_order: index,
             apply_sale: c.apply_sale,

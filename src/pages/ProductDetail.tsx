@@ -198,7 +198,9 @@ const ProductDetail = ({ key }: { key?: string }) => {
           color_id: selectedColor?.id || null,
           color_name: selectedColor?.name || null,
           color_code: selectedColor?.color_code || null,
-          color_price: selectedColor?.price || null,
+          color_price: (selectedColor?.price && parseFloat(selectedColor.price) > 0) 
+            ? parseFloat(selectedColor.price) 
+            : null,
         });
       }
     },
@@ -206,8 +208,8 @@ const ProductDetail = ({ key }: { key?: string }) => {
       queryClient.invalidateQueries({ queryKey: ["cart"] });
 
       // Calculate sale price for tracking (use color > variation > product price)
-      const basePrice = selectedColor 
-        ? selectedColor.price 
+      const basePrice = (selectedColor?.price && parseFloat(selectedColor.price) > 0)
+        ? parseFloat(selectedColor.price)
         : selectedVariation 
         ? selectedVariation.price 
         : product.price;
@@ -241,9 +243,9 @@ const ProductDetail = ({ key }: { key?: string }) => {
   };
 
   // Calculate sale price (needed for tracking)
-  // Use color price if selected, otherwise variation price, otherwise product price
-  const displayPrice = selectedColor 
-    ? selectedColor.price 
+  // Use color price if selected and has value, otherwise variation price, otherwise product price
+  const displayPrice = (selectedColor?.price && parseFloat(selectedColor.price) > 0)
+    ? parseFloat(selectedColor.price)
     : selectedVariation 
     ? selectedVariation.price 
     : product?.price || 0;
@@ -432,7 +434,7 @@ const ProductDetail = ({ key }: { key?: string }) => {
                     </div>
                    ) : (
                     <div>
-                      <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-leather-gold">{formatPrice(totalPrice)}</p>
+                      <p className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-leather-gold to-leather-cognac bg-clip-text text-transparent">{formatPrice(totalPrice)}</p>
                       {quantity > 1 && (
                         <p className="text-sm text-muted-foreground mt-1">
                           {formatPrice(displayPrice)} × {quantity}
@@ -528,11 +530,17 @@ const ProductDetail = ({ key }: { key?: string }) => {
                     <div className="flex flex-wrap gap-3">
                       {colors.map((color) => {
                         const isOutOfStock = color.quantity === 0;
+                        // Use color price if set, otherwise fall back to variation or product price
+                        const colorDisplayPrice = (color.price && color.price > 0) 
+                          ? color.price
+                          : selectedVariation 
+                          ? selectedVariation.price
+                          : product?.price || 0;
                         const colorSale = sales?.find((s) => s.product_id === product?.id);
                         const colorGlobalSale = sales?.find((s) => s.is_global);
                         const colorApplySale = color.apply_sale !== false;
                         const { finalPrice: colorFinalPrice, discount: colorDiscount } = calculateSalePrice(
-                          color.price,
+                          colorDisplayPrice,
                           colorSale,
                           colorGlobalSale,
                           colorApplySale
@@ -572,10 +580,10 @@ const ProductDetail = ({ key }: { key?: string }) => {
                               {colorDiscount ? (
                                 <div className="space-y-0.5">
                                   <div className="text-xs font-bold">{formatPrice(colorFinalPrice)}</div>
-                                  <div className="text-xs line-through opacity-60">{formatPrice(color.price)}</div>
+                                  <div className="text-xs line-through opacity-60">{formatPrice(colorDisplayPrice)}</div>
                                 </div>
                               ) : (
-                                <div className="text-xs font-medium">{formatPrice(color.price)}</div>
+                                <div className="text-xs font-medium">{formatPrice(colorDisplayPrice)}</div>
                               )}
                               {isOutOfStock && (
                                 <div className="text-[10px] font-bold text-destructive">Out of Stock</div>
