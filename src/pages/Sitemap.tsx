@@ -39,7 +39,7 @@ export default function Sitemap() {
 
   useEffect(() => {
     if (products && categories && blogs) {
-      const baseUrl = 'https://theshoppingcart.shop';
+      const baseUrl = 'https://techspotuae.store';
       
       const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

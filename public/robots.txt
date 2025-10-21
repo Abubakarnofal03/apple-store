@@ -5,4 +5,4 @@ Disallow: /auth
 Disallow: /cart
 Disallow: /checkout
 
-Sitemap: https://theshoppingcart.shop/sitemap.xml
+Sitemap: https://techspotuae.store/sitemap.xml

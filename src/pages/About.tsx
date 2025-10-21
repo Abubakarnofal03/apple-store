@@ -10,7 +10,7 @@ const About = () => {
         <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4">
             <h1 className="font-display text-4xl md:text-5xl font-bold text-center mb-4 gold-accent pb-8">
-              About The Shopping Cart
+              About tech spot uae
             </h1>
           </div>
         </section>
@@ -19,7 +19,7 @@ const About = () => {
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="prose prose-lg mx-auto">
               <p className="text-lg leading-relaxed mb-6">
-                Welcome to The Shopping Cart, where sophistication meets everyday elegance. We curate a 
+                Welcome to tech spot uae, where sophistication meets everyday elegance. We curate a 
                 distinguished collection of premium home décor and luxury leather accessories for 
                 those who appreciate the finer things in life.
               </p>
@@ -27,7 +27,7 @@ const About = () => {
               <h2 className="font-display text-3xl font-bold mt-12 mb-4">Our Story</h2>
               <p className="leading-relaxed mb-6">
                 Founded with a vision to bring premium lifestyle products to discerning customers, 
-                The Shopping Cart has become synonymous with quality, elegance, and timeless design. Each 
+                tech spot uae has become synonymous with quality, elegance, and timeless design. Each 
                 piece in our collection is carefully selected to meet our exacting standards of 
                 craftsmanship and style.
               </p>

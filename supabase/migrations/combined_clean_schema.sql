@@ -244,7 +244,7 @@ CREATE TABLE IF NOT EXISTS public.blogs (
   meta_description TEXT,
   focus_keywords TEXT[],
   featured_image_url TEXT,
-  author TEXT DEFAULT 'The Shopping Cart',
+  author TEXT DEFAULT 'tech spot uae',
   published BOOLEAN NOT NULL DEFAULT false,
   created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
   updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()

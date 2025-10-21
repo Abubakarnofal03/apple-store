@@ -175,11 +175,11 @@ const Shop = () => {
 
   const selectedCategoryData = categories?.find(c => c.slug === selectedCategory);
   const pageTitle = selectedCategoryData
-    ? `Shop ${selectedCategoryData.name} Online | The Shopping Cart`
-    : "Shop All Products Online | The Shopping Cart";
+    ? `Shop ${selectedCategoryData.name} Online | tech spot uae`
+    : "Shop All Products Online | tech spot uae";
   const pageDescription = selectedCategoryData
-    ? `Browse premium ${selectedCategoryData.name.toLowerCase()} online in Pakistan. Quality products, fast delivery at TheShoppingCart.shop`
-    : "Discover premium home decor, wallets, accessories, and furniture at TheShoppingCart.shop – fast delivery across Pakistan.";
+    ? `Browse premium ${selectedCategoryData.name.toLowerCase()} online in Pakistan. Quality products, fast delivery at techspotuae.store`
+    : "Discover premium home decor, wallets, accessories, and furniture at techspotuae.store – fast delivery across Pakistan.";
   const pageKeywords = selectedCategoryData?.focus_keywords || [
     'online shopping Pakistan',
     'home decor',
@@ -207,7 +207,7 @@ const Shop = () => {
         title={pageTitle}
         description={pageDescription}
         keywords={pageKeywords}
-        canonicalUrl={selectedCategory ? `https://theshoppingcart.shop/shop?category=${selectedCategory}` : "https://theshoppingcart.shop/shop"}
+        canonicalUrl={selectedCategory ? `https://techspotuae.store/shop?category=${selectedCategory}` : "https://techspotuae.store/shop"}
         structuredData={structuredData}
       />
       

@@ -166,9 +166,9 @@ export const Navbar = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <Link to="/about" className="text-sm font-medium hover:text-accent transition-colors">
+            {/* <Link to="/about" className="text-sm font-medium hover:text-accent transition-colors">
               About
-            </Link>
+            </Link> */}
             <Link to="/contact" className="text-sm font-medium hover:text-accent transition-colors">
               Contact
             </Link>

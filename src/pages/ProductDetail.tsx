@@ -318,14 +318,14 @@ const ProductDetail = ({ key }: { key?: string }) => {
   return (
     <>
       <SEOHead
-        title={product.meta_title || `${product.name} | Buy Online at The Shopping Cart`}
+        title={product.meta_title || `${product.name} | Buy Online at tech spot uae`}
         description={
           product.meta_description ||
           product.description ||
-          `Buy ${product.name} online in Pakistan. Premium quality products at TheShoppingCart.shop with fast delivery.`
+          `Buy ${product.name} online in UAE. Premium quality products at techspotuae.store with fast delivery.`
         }
-        keywords={product.focus_keywords || [product.name, product.categories?.name || "", "buy online Pakistan"]}
-        canonicalUrl={`https://theshoppingcart.shop/product/${product.slug}`}
+        keywords={product.focus_keywords || [product.name, product.categories?.name || "", "buy online UAE"]}
+        canonicalUrl={`https://techspotuae.store/product/${product.slug}`}
         ogImage={productImages[0]}
         ogType="product"
         structuredData={structuredData}
@@ -670,7 +670,7 @@ const ProductDetail = ({ key }: { key?: string }) => {
                     </div>
                     <div>
                       <p className="text-xs font-bold leading-tight text-foreground">Free Delivery</p>
-                      <p className="text-xs text-leather-cognac leading-tight">All Pakistan</p>
+                      <p className="text-xs text-leather-cognac leading-tight">All UAE</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">

@@ -28,21 +28,21 @@ const Contact = () => {
                 <CardContent className="pt-6 text-center">
                   <Mail className="h-12 w-12 text-accent mx-auto mb-4" />
                   <h3 className="font-semibold mb-2">Email</h3>
-                  <p className="text-muted-foreground">info.theshoppingcartt@gmail.com</p>
+                  <p className="text-muted-foreground">info.techspotuae@gmail.com</p>
                 </CardContent>
               </Card>
               <Card className="glass-card glass-hover rounded-xl">
                 <CardContent className="pt-6 text-center">
                   <Phone className="h-12 w-12 text-accent mx-auto mb-4" />
                   <h3 className="font-semibold mb-2">Phone</h3>
-                  <p className="text-muted-foreground">+92 324 1693025</p>
+                  <p className="text-muted-foreground">+971 586749560</p>
                 </CardContent>
               </Card>
               <Card className="glass-card glass-hover rounded-xl">
                 <CardContent className="pt-6 text-center">
                   <MapPin className="h-12 w-12 text-accent mx-auto mb-4" />
                   <h3 className="font-semibold mb-2">Location</h3>
-                  <p className="text-muted-foreground">Pakistan</p>
+                  <p className="text-muted-foreground">United Arab Emirates</p>
                 </CardContent>
               </Card>
             </div>

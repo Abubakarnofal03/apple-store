@@ -90,8 +90,8 @@ const Index = () => {
   return (
     <>
       <SEOHead
-        title="The Shopping Cart – Pakistan's Online Store for Home Decor, Wallets & More"
-        description="Shop premium home decor, wallets, furniture, accessories & garden decorations online in Pakistan. Fast delivery, quality products at TheShoppingCart.shop"
+        title="Tech Spot UAE – UAE's Online Store for Home Decor, Wallets & More"
+        description="Shop premium home decor, wallets, furniture, accessories & garden decorations online in UAE. Fast delivery, quality products at TheShoppingCart.shop"
         keywords={[
           'home decor',
           'wallets',
@@ -99,15 +99,15 @@ const Index = () => {
           'accessories',
           'garden decorations',
           'shopping cart',
-          'the shopping cart',
+          'Tech Spot UAE',
           'theshoppingcart.shop',
-          'buy online in Pakistan',
+          'buy online in UAE',
           'premium decor items',
-          'online shopping Pakistan',
+          'online shopping UAE',
           'home accessories',
           'leather wallets'
         ]}
-        canonicalUrl="https://theshoppingcart.shop"
+        canonicalUrl="https://techspotuae.store/"
         structuredData={structuredData}
       />
       
@@ -175,9 +175,9 @@ const Index = () => {
         {/* <section className="py-12 bg-background">
           <div className="container mx-auto px-4 max-w-4xl text-center">
             {/* <p className="text-lg text-muted-foreground leading-relaxed">
-              Welcome to <strong>The Shopping Cart</strong> – your trusted online destination for premium <strong>home decor</strong>, 
+              Welcome to <strong>Tech Spot UAE</strong> – your trusted online destination for premium <strong>home decor</strong>, 
               elegant <strong>wallets</strong>, stylish <strong>furniture</strong>, quality <strong>accessories</strong>, and beautiful 
-              <strong> garden decorations</strong> in Pakistan. Shop with confidence and enjoy fast delivery across the country. 
+              <strong> garden decorations</strong> in UAE. Shop with confidence and enjoy fast delivery across the country. 
               TheShoppingCart.shop brings you carefully curated products that blend style, quality, and affordability.
             </p> 
           </div>
@@ -277,7 +277,7 @@ const Index = () => {
                 Featured Products - Best Sellers
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Handpicked premium home decor, wallets, and accessories for the discerning customer
+                iphone, ipads, and macbooks, and accessories for the discerning customer
               </p>
             </div>
 

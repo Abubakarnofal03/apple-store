@@ -75,10 +75,10 @@ export default function BlogPost() {
   return (
     <>
       <SEOHead
-        title={post.meta_title || `${post.title} | The Shopping Cart Blog`}
+        title={post.meta_title || `${post.title} | tech spot uae Blog`}
         description={post.meta_description || post.excerpt || post.title}
         keywords={post.focus_keywords || []}
-        canonicalUrl={`https://theshoppingcart.shop/blog/${post.slug}`}
+        canonicalUrl={`https://techspotuae.store/blog/${post.slug}`}
         ogImage={post.featured_image_url}
         ogType="article"
         structuredData={structuredData}

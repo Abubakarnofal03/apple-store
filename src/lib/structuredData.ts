@@ -3,25 +3,25 @@
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "The Shopping Cart",
-  "alternateName": "TheShoppingCart.shop",
-  "url": "https://theshoppingcart.shop",
-  "logo": "https://theshoppingcart.shop/logo.jpg",
-  "description": "Pakistan's premier online store for home decor, wallets, furniture, accessories, and garden decorations. Quality products delivered across Pakistan.",
+  "name": "tech spot uae",
+  "alternateName": "techspotuae.store",
+  "url": "https://techspotuae.store",
+  "logo": "https://techspotuae.store/logo.jpg",
+  "description": "UAE's premier online store for home decor, wallets, furniture, accessories, and garden decorations. Quality products delivered across UAE.",
   "sameAs": [
-    "https://facebook.com/theshoppingcart",
-    "https://instagram.com/theshoppingcart"
+    "https://facebook.com/techspotuae",
+    "https://instagram.com/techspotuae"
   ]
 };
 
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "The Shopping Cart",
-  "url": "https://theshoppingcart.shop",
+  "name": "tech spot uae",
+  "url": "https://techspotuae.store",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://theshoppingcart.shop/shop?search={search_term_string}",
+    "target": "https://techspotuae.store/shop?search={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 };
@@ -38,11 +38,11 @@ export const productSchema = (product: {
   "@type": "Product",
   "name": product.name,
   "description": product.description || product.name,
-  "image": product.images.map(img => img.startsWith('http') ? img : `https://theshoppingcart.shop${img}`),
+  "image": product.images.map(img => img.startsWith('http') ? img : `https://techspotuae.store${img}`),
   "sku": product.sku || product.name,
   "brand": {
     "@type": "Brand",
-    "name": "The Shopping Cart"
+    "name": "tech spot uae"
   },
   "offers": {
     "@type": "Offer",
@@ -54,7 +54,7 @@ export const productSchema = (product: {
       : "https://schema.org/OutOfStock",
     "seller": {
       "@type": "Organization",
-      "name": "The Shopping Cart"
+      "name": "tech spot uae"
     }
   }
 });
@@ -66,7 +66,7 @@ export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({
     "@type": "ListItem",
     "position": index + 1,
     "name": item.name,
-    "item": item.url.startsWith('http') ? item.url : `https://theshoppingcart.shop${item.url}`
+    "item": item.url.startsWith('http') ? item.url : `https://techspotuae.store${item.url}`
   }))
 });
 
@@ -87,14 +87,14 @@ export const blogPostSchema = (post: {
   },
   "publisher": {
     "@type": "Organization",
-    "name": "The Shopping Cart",
+    "name": "tech spot uae",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://theshoppingcart.shop/logo.jpg"
+      "url": "https://techspotuae.store/logo.jpg"
     }
   },
   "datePublished": post.created_at,
   "image": post.featured_image_url 
-    ? (post.featured_image_url.startsWith('http') ? post.featured_image_url : `https://theshoppingcart.shop${post.featured_image_url}`)
-    : "https://theshoppingcart.shop/logo.jpg"
+    ? (post.featured_image_url.startsWith('http') ? post.featured_image_url : `https://techspotuae.store${post.featured_image_url}`)
+    : "https://techspotuae.store/logo.jpg"
 });

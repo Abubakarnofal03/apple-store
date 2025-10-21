@@ -38,8 +38,8 @@ export default function Blog() {
   return (
     <>
       <SEOHead
-        title="Blog - Home Decor Tips & Shopping Guide | The Shopping Cart"
-        description="Read expert tips on home decor, furniture selection, wallet care, and shopping guides. Stay updated with the latest trends at TheShoppingCart.shop"
+        title="Blog - Home Decor Tips & Shopping Guide | tech spot uae"
+        description="Read expert tips on home decor, furniture selection, wallet care, and shopping guides. Stay updated with the latest trends at techspotuae.store"
         keywords={[
           'home decor blog',
           'furniture tips',
@@ -48,7 +48,7 @@ export default function Blog() {
           'wallet guide',
           'interior design Pakistan'
         ]}
-        canonicalUrl="https://theshoppingcart.shop/blog"
+        canonicalUrl="https://techspotuae.store/blog"
         structuredData={structuredData}
       />
       
@@ -60,7 +60,7 @@ export default function Blog() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Discover expert tips, trends, and guides for home decor, furniture, wallets, and more. 
-              Stay inspired with The Shopping Cart.
+              Stay inspired with tech spot uae.
             </p>
           </header>
 
