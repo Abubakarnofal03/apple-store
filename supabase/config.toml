@@ -1,0 +1,4 @@
+project_id = "lpxrcdfygxmrsxauknbo"
+
+[functions.sync-meta-catalog]
+verify_jwt = true
