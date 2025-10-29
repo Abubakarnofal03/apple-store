@@ -493,29 +493,7 @@ const ProductDetail = ({ key }: { key?: string }) => {
     </div>
   )}
 </div>
-</div>
-                <div className="bg-gradient-to-r from-green-600 via-green-700 to-green-600 text-white rounded-2xl p-4 shadow-xl border border-green-500/30">
-                  <div className="flex items-center justify-between flex-wrap gap-2">
-                    <div className="flex items-center gap-6">
-                      <div className="flex items-center gap-2">
-                        <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                        <span className="font-black text-lg">4.9/5</span>
-                      </div>
-                      <div className="hidden md:block border-l border-green-400/50 pl-6">
-                        <p className="text-sm font-bold">1,247 Happy Customers</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="h-4 w-4" />
-                      <span className="font-semibold">Trusted iPhone Store in UAE</span>
-                    </div>
-                  </div>
-                </div>
-                
-                
-
-                
-
+</div>                    
                 {product.stock_quantity !== undefined && product.stock_quantity < 20 && (
                   <div className={`rounded-2xl p-5 shadow-lg border-2 ${
                     product.stock_quantity > 0 
@@ -654,6 +632,23 @@ const ProductDetail = ({ key }: { key?: string }) => {
                     >
                       <Plus className="h-4 w-4" />
                     </Button>
+                  </div>
+                </div>
+                <div className="bg-gradient-to-r from-green-600 via-green-700 to-green-600 text-white rounded-2xl p-4 shadow-xl border border-green-500/30">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <div className="flex items-center gap-6">
+                      <div className="flex items-center gap-2">
+                        <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                        <span className="font-black text-lg">4.9/5</span>
+                      </div>
+                      <div className="hidden md:block border-l border-green-400/50 pl-6">
+                        <p className="text-sm font-bold">1,247 Happy Customers</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4" />
+                      <span className="font-semibold">Trusted iPhone Store in UAE</span>
+                    </div>
                   </div>
                 </div>
 
