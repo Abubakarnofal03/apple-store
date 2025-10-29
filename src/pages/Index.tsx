@@ -90,12 +90,11 @@ const Index = () => {
     <>
       <SEOHead
         title="Tech Spot UAE – Buy Authentic Pre-Owned iPhones Online in UAE"
-        description="Buy authentic pre-owned iPhones in original condition, never refurbished. 5000+ happy customers. Free 2-day delivery in UAE. Cash on delivery available. Store warranty included at techspotuae.store"
+        description="Buy authentic pre-owned iPhones in original condition. 5000+ happy customers. Free 2-day delivery in UAE. Cash on delivery available. Store warranty included at techspotuae.store"
         keywords={[
           'buy iphone online UAE',
           'pre-owned iphone UAE',
           'authentic iphone',
-          'never refurbished',
           'iphone store UAE',
           'used iphone in original condition',
           'buy online UAE',
@@ -161,7 +160,7 @@ const Index = () => {
                 {activeBanner.title || "Authentic Pre-Owned iPhones"}
               </h1>
               <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto drop-shadow-lg animate-fade-in">
-                {activeBanner.subtitle || "Never Refurbished • Original Condition • Store Warranty"}
+                {activeBanner.subtitle || "Exellent Quality • Original Condition • Store Warranty"}
               </p>
               <div className="animate-fade-in space-x-4">
                 <Button asChild size="lg" className="bg-gradient-to-r from-black via-gray-900 to-black hover:from-gray-900 hover:via-gray-800 hover:to-gray-900 text-white font-black h-16 px-8 text-lg rounded-2xl shadow-2xl hover:shadow-3xl">
@@ -216,7 +215,7 @@ const Index = () => {
                 Browse All iPhone Models
               </h2>
               <p className="text-muted-foreground max-w-3xl mx-auto text-base md:text-lg">
-                Pre-owned in original condition, never refurbished. Quality guaranteed with store warranty.
+                Pre-owned in original condition. Quality guaranteed with store warranty.
               </p>
             </div>
 
@@ -259,7 +258,7 @@ const Index = () => {
                   <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-full p-4 w-fit mb-4">
                     <CheckCircle2 className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="font-bold text-xl mb-2">Never Refurbished</h3>
+                  <h3 className="font-bold text-xl mb-2">Exellent condition</h3>
                   <p className="text-sm text-muted-foreground">Original condition, genuine parts only</p>
                 </CardContent>
               </Card>
@@ -306,7 +305,7 @@ const Index = () => {
                 Best Sellers
               </h2>
               <p className="text-muted-foreground max-w-3xl mx-auto text-base md:text-lg">
-                Top-rated pre-owned iPhones in original condition. Never refurbished. Trusted by 1,247+ customers.
+                Top-rated pre-owned iPhones in original condition. Exellent Condition. Trusted by 1,247+ customers.
               </p>
             </div>
 

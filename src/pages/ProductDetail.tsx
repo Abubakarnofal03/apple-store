@@ -322,7 +322,7 @@ const ProductDetail = ({ key }: { key?: string }) => {
         description={
           product.meta_description ||
           product.description ||
-          `Buy ${product.name} online in UAE. Pre-owned in original condition, never refurbished. Premium quality at techspotuae.store with fast delivery.`
+          `Buy ${product.name} online in UAE. Pre-owned in original condition. Premium quality at techspotuae.store with fast delivery.`
         }
         keywords={product.focus_keywords || [product.name, product.categories?.name || "", "buy online UAE"]}
         canonicalUrl={`https://techspotuae.store/product/${product.slug}`}
@@ -410,8 +410,90 @@ const ProductDetail = ({ key }: { key?: string }) => {
                 )}
               </div>
 
+              
               <div className="space-y-6">
                 {/* Social Proof Banner */}
+                <div className="space-y-6">
+                  {/* Category Badge */}
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <div className="px-4 py-1.5 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 rounded-full border border-blue-200 dark:border-blue-800">
+                      <p className="text-xs font-black text-blue-700 dark:text-blue-400 uppercase tracking-widest">{product.categories?.name}</p>
+                    </div>
+                    <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-3 py-1">
+                      Pre-Owned • Excellent
+                    </Badge>
+                    <Badge className="bg-gradient-to-r from-green-500 to-green-600 text-white font-bold px-3 py-1">
+                      ✓ 100% Original
+                    </Badge>
+                  </div>
+                  
+{/* Product Name */}
+<div className="space-y-2">
+  <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2 leading-tight tracking-tight bg-gradient-to-br from-black to-gray-800 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
+    {product.name}
+  </h1>
+  {product.sku && (
+    <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
+      <Package className="h-3 w-3 md:h-4 md:w-4" />
+      <span>
+        SKU: <span className="font-bold">{product.sku}</span>
+      </span>
+    </div>
+  )}
+</div>
+
+{/* Premium Pricing Section */}
+<div className="bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 rounded-3xl p-5 border-2 border-gray-200 dark:border-gray-800 shadow-xl">
+  {discount ? (
+    <div className="space-y-3">
+      <div className="flex items-center gap-2 md:gap-3">
+        <Badge className="bg-gradient-to-r from-red-600 to-red-700 text-white font-black px-3 py-1.5 text-xs md:text-sm uppercase tracking-wide shadow-lg animate-pulse">
+          {discount}% OFF SALE
+        </Badge>
+        <Badge className="bg-gradient-to-r from-green-500 to-green-600 text-white font-bold px-2.5 py-1 text-xs md:text-sm">
+          Best Price
+        </Badge>
+      </div>
+      <div className="flex items-baseline gap-3 md:gap-4 flex-wrap">
+        <div>
+          <p className="text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-br from-black to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent leading-none">
+            {formatPrice(totalPrice)}
+          </p>
+          <p className="text-sm md:text-base text-muted-foreground font-semibold">
+            Total Price
+          </p>
+        </div>
+        <div className="flex flex-col items-end">
+          <p className="text-lg md:text-xl text-muted-foreground line-through decoration-2 decoration-red-500">
+            {formatPrice(displayPrice * quantity)}
+          </p>
+          <p className="text-xs md:text-sm font-bold text-green-600 dark:text-green-400">
+            Save {formatPrice((displayPrice * quantity) - totalPrice)}
+          </p>
+        </div>
+      </div>
+      {quantity > 1 && (
+        <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
+          <p className="text-xs md:text-sm text-muted-foreground font-semibold">
+            <span className="text-foreground">{formatPrice(finalPrice)}</span> per unit × {quantity} units
+          </p>
+        </div>
+      )}
+    </div>
+  ) : (
+    <div className="space-y-2">
+      <p className="text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-br from-black to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent leading-none">
+        {formatPrice(totalPrice)}
+      </p>
+      {quantity > 1 && (
+        <p className="text-xs md:text-sm text-muted-foreground font-semibold">
+          {formatPrice(displayPrice)} per unit × {quantity} units
+        </p>
+      )}
+    </div>
+  )}
+</div>
+</div>
                 <div className="bg-gradient-to-r from-green-600 via-green-700 to-green-600 text-white rounded-2xl p-4 shadow-xl border border-green-500/30">
                   <div className="flex items-center justify-between flex-wrap gap-2">
                     <div className="flex items-center gap-6">
@@ -430,117 +512,9 @@ const ProductDetail = ({ key }: { key?: string }) => {
                   </div>
                 </div>
                 
-                {/* Premium Trust Badge - iPhone Focused */}
-                <div className="bg-gradient-to-r from-black via-gray-900 to-black dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 text-white rounded-3xl p-6 shadow-2xl border-2 border-white/10 overflow-hidden relative">
-                  {/* Animated background pattern */}
-                  <div className="absolute inset-0 opacity-5">
-                    <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-                  </div>
-                  
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-center gap-4 mb-4">
-                      <div className="bg-gradient-to-br from-white to-gray-100 rounded-full p-3 shadow-xl">
-                        <Award className="h-8 w-8 text-black" />
-                      </div>
-                      <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-full p-3 shadow-xl">
-                        <CheckCircle2 className="h-8 w-8 text-white" />
-                      </div>
-                      <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-full p-3 shadow-xl">
-                        <ShieldCheck className="h-8 w-8 text-white" />
-                      </div>
-                    </div>
-                    <div className="text-center space-y-2">
-                      <p className="text-2xl font-black tracking-tight">100% AUTHENTIC iPHONE</p>
-                      <p className="text-base font-semibold text-gray-300">Pre-Owned in Original Condition - Never Refurbished</p>
-                      <div className="flex items-center justify-center gap-2 text-sm text-gray-400">
-                        <CheckCircle2 className="h-4 w-4 text-green-400" />
-                        <span>Original Condition & Working Perfectly</span>
-                        <span className="text-gray-600">•</span>
-                        <span>No Refurbishment - Pristine Quality</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
 
-                <div className="space-y-6">
-                  {/* Category Badge */}
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <div className="px-4 py-1.5 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 rounded-full border border-blue-200 dark:border-blue-800">
-                      <p className="text-xs font-black text-blue-700 dark:text-blue-400 uppercase tracking-widest">{product.categories?.name}</p>
-                    </div>
-                    <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-3 py-1">
-                      Pre-Owned • Excellent
-                    </Badge>
-                    <Badge className="bg-gradient-to-r from-green-500 to-green-600 text-white font-bold px-3 py-1">
-                      ✓ Never Refurbished
-                    </Badge>
-                  </div>
-                  
-                  {/* Product Name */}
-                  <div className="space-y-2">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-2 leading-tight tracking-tight bg-gradient-to-br from-black to-gray-800 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
-                      {product.name}
-                    </h1>
-                    {product.sku && (
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Package className="h-4 w-4" />
-                        <span>SKU: <span className="font-bold">{product.sku}</span></span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Premium Pricing Section */}
-                  <div className="bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 rounded-3xl p-6 border-2 border-gray-200 dark:border-gray-800 shadow-xl">
-                    {discount ? (
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3">
-                          <Badge className="bg-gradient-to-r from-red-600 to-red-700 text-white font-black px-4 py-2 text-base uppercase tracking-wide shadow-lg animate-pulse">
-                            {discount}% OFF SALE
-                          </Badge>
-                          <Badge className="bg-gradient-to-r from-green-500 to-green-600 text-white font-bold px-3 py-1">
-                            Best Price
-                          </Badge>
-                        </div>
-                        <div className="flex items-baseline gap-4 flex-wrap">
-                          <div>
-                            <p className="text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-br from-black to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent leading-none">
-                              {formatPrice(totalPrice)}
-                            </p>
-                            <p className="text-lg text-muted-foreground font-semibold">Total Price</p>
-                          </div>
-                          <div className="flex flex-col items-end">
-                            <p className="text-2xl md:text-3xl text-muted-foreground line-through decoration-2 decoration-red-500">
-                              {formatPrice(displayPrice * quantity)}
-                            </p>
-                            <p className="text-sm font-bold text-green-600 dark:text-green-400">
-                              Save {formatPrice((displayPrice * quantity) - totalPrice)}
-                            </p>
-                          </div>
-                        </div>
-                        {quantity > 1 && (
-                          <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
-                            <p className="text-sm text-muted-foreground font-semibold">
-                              <span className="text-foreground">{formatPrice(finalPrice)}</span> per unit × {quantity} units
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                     ) : (
-                      <div className="space-y-2">
-                        <p className="text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-br from-black to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent leading-none">
-                          {formatPrice(totalPrice)}
-                        </p>
-                        {quantity > 1 && (
-                          <p className="text-sm text-muted-foreground font-semibold">
-                            {formatPrice(displayPrice)} per unit × {quantity} units
-                          </p>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                  
-                </div>
+                
 
                 {product.stock_quantity !== undefined && product.stock_quantity < 20 && (
                   <div className={`rounded-2xl p-5 shadow-lg border-2 ${
@@ -590,158 +564,74 @@ const ProductDetail = ({ key }: { key?: string }) => {
                 )}
 
 {variations && variations.length > 0 && (
-                  <div className="space-y-4 bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-blue-950/30 dark:to-purple-950/30 p-6 rounded-3xl border border-blue-200 dark:border-blue-800">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="bg-gradient-to-br from-blue-500 to-purple-500 rounded-full p-2">
-                        <Smartphone className="h-5 w-5 text-white" />
-                      </div>
-                      <h2 className="text-base font-black text-foreground uppercase tracking-wider">Choose Your Model</h2>
-                    </div>
-                    <div className="flex flex-wrap gap-3">
-                      {variations.map((variation) => {
-                        const isOutOfStock = variation.quantity === 0;
-                        const varSale = sales?.find((s) => s.product_id === product?.id);
-                        const varGlobalSale = sales?.find((s) => s.is_global);
-                        const varApplySale = variation.apply_sale !== false;
-                        const { finalPrice: varFinalPrice, discount: varDiscount } = calculateSalePrice(
-                          variation.price,
-                          varSale,
-                          varGlobalSale,
-                          varApplySale
-                        );
-                        
-                        return (
-                          <button
-                            key={variation.id}
-                            onClick={() => {
-                              if (!isOutOfStock) {
-                                setSelectedVariation(variation);
-                                setQuantity(1);
-                              }
-                            }}
-                            disabled={isOutOfStock}
-                            className={`
-                              relative px-5 py-3.5 rounded-xl transition-all duration-200 font-medium
-                              ${isOutOfStock
-                                ? 'opacity-40 cursor-not-allowed bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700'
-                                : selectedVariation?.id === variation.id
-                                ? 'bg-blue-600 text-white shadow-lg ring-2 ring-blue-500/50 ring-offset-2'
-                                : 'bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:border-blue-500 hover:shadow-md'
-                              }
-                            `}
-                          >
-                            {isOutOfStock && (
-                              <div className="absolute inset-0 flex items-center justify-center">
-                                <X className="h-12 w-12 text-destructive opacity-70" strokeWidth={3} />
-                              </div>
-                            )}
-                            <div className={`text-center space-y-1 ${isOutOfStock ? 'opacity-50' : ''}`}>
-                              <div className="font-semibold text-sm">{variation.name}</div>
-                              {varDiscount ? (
-                                <div className="space-y-0.5">
-                                  <div className="text-xs font-bold">{formatPrice(varFinalPrice)}</div>
-                                  <div className="text-xs line-through opacity-60">{formatPrice(variation.price)}</div>
-                                </div>
-                              ) : (
-                                <div className="text-xs font-medium">{formatPrice(variation.price)}</div>
-                              )}
-                              {isOutOfStock && (
-                                <div className="text-[10px] font-bold text-destructive">Out of Stock</div>
-                              )}
-                            </div>
-                            {varDiscount && !isOutOfStock && (
-                              <div className="absolute -top-2 -right-2 bg-destructive text-destructive-foreground text-[10px] font-bold px-1.5 py-0.5 rounded-full">
-                                -{varDiscount}%
-                              </div>
-                            )}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
+  <div className="space-y-4 bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-blue-950/30 dark:to-purple-950/30 p-6 rounded-3xl border border-blue-200 dark:border-blue-800">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="bg-gradient-to-br from-blue-500 to-purple-500 rounded-full p-2">
+        <Smartphone className="h-5 w-5 text-white" />
+      </div>
+      <h2 className="text-base font-black text-foreground uppercase tracking-wider">Choose Model & Color</h2>
+    </div>
 
-                {colors && colors.length > 0 && (
-                  <div className="space-y-4 bg-gradient-to-br from-pink-50/50 to-orange-50/50 dark:from-pink-950/30 dark:to-orange-950/30 p-6 rounded-3xl border border-pink-200 dark:border-pink-800">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="bg-gradient-to-br from-pink-500 to-orange-500 rounded-full p-2">
-                        <Star className="h-5 w-5 text-white" />
-                      </div>
-                      <h2 className="text-base font-black text-foreground uppercase tracking-wider">Choose Your Color</h2>
-                    </div>
-                    <div className="flex flex-wrap gap-3">
-                      {colors.map((color) => {
-                        const isOutOfStock = color.quantity === 0;
-                        // Use color price if set, otherwise fall back to variation or product price
-                        const colorDisplayPrice = (color.price && color.price > 0) 
-                          ? color.price
-                          : selectedVariation 
-                          ? selectedVariation.price
-                          : product?.price || 0;
-                        const colorSale = sales?.find((s) => s.product_id === product?.id);
-                        const colorGlobalSale = sales?.find((s) => s.is_global);
-                        const colorApplySale = color.apply_sale !== false;
-                        const { finalPrice: colorFinalPrice, discount: colorDiscount } = calculateSalePrice(
-                          colorDisplayPrice,
-                          colorSale,
-                          colorGlobalSale,
-                          colorApplySale
-                        );
-                        
-                        return (
-                          <button
-                            key={color.id}
-                            onClick={() => {
-                              if (!isOutOfStock) {
-                                setSelectedColor(color);
-                                setQuantity(1);
-                              }
-                            }}
-                            disabled={isOutOfStock}
-                            className={`
-                              relative px-5 py-3.5 rounded-xl transition-all duration-200 flex items-center gap-2 font-medium
-                              ${isOutOfStock
-                                ? 'opacity-40 cursor-not-allowed bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700'
-                                : selectedColor?.id === color.id
-                                ? 'bg-blue-600 text-white shadow-lg ring-2 ring-blue-500/50 ring-offset-2'
-                                : 'bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:border-blue-500 hover:shadow-md'
-                              }
-                            `}
-                          >
-                            {isOutOfStock && (
-                              <div className="absolute inset-0 flex items-center justify-center">
-                                <X className="h-12 w-12 text-destructive opacity-70" strokeWidth={3} />
-                              </div>
-                            )}
-                            <div
-                              className="w-6 h-6 rounded-full border-2 border-border"
-                              style={{ backgroundColor: color.color_code }}
-                            />
-                            <div className={`text-center space-y-1 ${isOutOfStock ? 'opacity-50' : ''}`}>
-                              <div className="font-semibold text-sm">{color.name}</div>
-                              {colorDiscount ? (
-                                <div className="space-y-0.5">
-                                  <div className="text-xs font-bold">{formatPrice(colorFinalPrice)}</div>
-                                  <div className="text-xs line-through opacity-60">{formatPrice(colorDisplayPrice)}</div>
-                                </div>
-                              ) : (
-                                <div className="text-xs font-medium">{formatPrice(colorDisplayPrice)}</div>
-                              )}
-                              {isOutOfStock && (
-                                <div className="text-[10px] font-bold text-destructive">Out of Stock</div>
-                              )}
-                            </div>
-                            {colorDiscount && !isOutOfStock && (
-                              <div className="absolute -top-2 -right-2 bg-destructive text-destructive-foreground text-[10px] font-bold px-1.5 py-0.5 rounded-full">
-                                -{colorDiscount}%
-                              </div>
-                            )}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
+    {/* Variations */}
+    <div className="flex flex-wrap gap-2 mb-3">
+      {variations.map((variation) => {
+        const isOutOfStock = variation.quantity === 0;
+        return (
+          <button
+            key={variation.id}
+            onClick={() => {
+              if (!isOutOfStock) {
+                setSelectedVariation(variation);
+                setQuantity(1);
+              }
+            }}
+            disabled={isOutOfStock}
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all
+              ${isOutOfStock
+                ? 'opacity-40 cursor-not-allowed bg-gray-200 dark:bg-gray-800 text-gray-500'
+                : selectedVariation?.id === variation.id
+                ? 'bg-blue-600 text-white shadow-md'
+                : 'bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:border-blue-500 hover:text-blue-600'
+              }`}
+          >
+            {variation.name}
+          </button>
+        );
+      })}
+    </div>
+
+    {/* Colors (only show if colors exist) */}
+    {colors && colors.length > 0 && (
+      <div className="flex flex-wrap gap-3 mt-2">
+        {colors.map((color) => {
+          const isOutOfStock = color.quantity === 0;
+          return (
+            <button
+              key={color.id}
+              onClick={() => {
+                if (!isOutOfStock) {
+                  setSelectedColor(color);
+                  setQuantity(1);
+                }
+              }}
+              disabled={isOutOfStock}
+              title={color.name}
+              className={`w-8 h-8 rounded-full border-2 transition-all
+                ${selectedColor?.id === color.id
+                  ? 'ring-2 ring-blue-500 ring-offset-2'
+                  : 'hover:ring-2 hover:ring-blue-300'
+                }
+                ${isOutOfStock ? 'opacity-30 cursor-not-allowed' : ''}
+              `}
+              style={{ backgroundColor: color.color_code || "#ccc" }}
+            />
+          );
+        })}
+      </div>
+    )}
+  </div>
+)}
+
 
                 <div className="space-y-4">
                   <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider">Quantity</h2>
@@ -766,86 +656,40 @@ const ProductDetail = ({ key }: { key?: string }) => {
                     </Button>
                   </div>
                 </div>
-                {/* Premium iPhone Trust Features */}
-                <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 rounded-3xl p-6 shadow-xl border border-gray-200 dark:border-gray-800">
-                  <div className="flex items-center gap-2 mb-5">
-                    <Smartphone className="h-6 w-6 text-black dark:text-white" />
-                    <h3 className="text-lg font-bold text-foreground">Why Buy From Us?</h3>
+
+                {/* Premium Trust Badge - iPhone Focused */}
+                <div className="bg-gradient-to-r from-black via-gray-900 to-black dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 text-white rounded-3xl p-6 shadow-2xl border-2 border-white/10 overflow-hidden relative">
+                  {/* Animated background pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
                   </div>
-                  <div className="grid grid-cols-1 gap-4">
-                    <div className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700">
-                      <div className="flex-shrink-0">
-                        <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-full p-3">
-                          <CheckCircle2 className="h-6 w-6 text-white" />
-                        </div>
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-center gap-4 mb-4">
+                      <div className="bg-gradient-to-br from-white to-gray-100 rounded-full p-3 shadow-xl">
+                        <Award className="h-8 w-8 text-black" />
                       </div>
-                      <div className="flex-1">
-                        <p className="text-base font-bold text-foreground mb-1">100% Original Apple iPhone</p>
-                        <p className="text-sm text-muted-foreground">Pre-owned in pristine condition. Never refurbished. Genuine parts only. Works perfectly like new.</p>
+                      <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-full p-3 shadow-xl">
+                        <CheckCircle2 className="h-8 w-8 text-white" />
                       </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700">
-                      <div className="flex-shrink-0">
-                        <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-full p-3">
-                          <Award className="h-6 w-6 text-white" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-base font-bold text-foreground mb-1">Store Warranty & Quality Guaranteed</p>
-                        <p className="text-sm text-muted-foreground">7-day testing warranty from our store. Phone fully tested and working perfectly.</p>
+                      <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-full p-3 shadow-xl">
+                        <ShieldCheck className="h-8 w-8 text-white" />
                       </div>
                     </div>
-                    
-                    <div className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700">
-                      <div className="flex-shrink-0">
-                        <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-full p-3">
-                          <Truck className="h-6 w-6 text-white" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-base font-bold text-foreground mb-1">Free 2-Day Delivery in UAE</p>
-                        <p className="text-sm text-muted-foreground">Track your order. Secure delivery to your doorstep.</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700">
-                      <div className="flex-shrink-0">
-                        <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-full p-3">
-                          <CreditCard className="h-6 w-6 text-white" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-base font-bold text-foreground mb-1">Cash on Delivery Available</p>
-                        <p className="text-sm text-muted-foreground">Check the product, then pay. No upfront payment required.</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700">
-                      <div className="flex-shrink-0">
-                        <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full p-3">
-                          <ShieldCheck className="h-6 w-6 text-white" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-base font-bold text-foreground mb-1">7-Day Easy Return Policy</p>
-                        <p className="text-sm text-muted-foreground">Changed your mind? Return within 7 days for full refund.</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-black to-gray-900 dark:from-gray-950 dark:to-gray-900 rounded-2xl shadow-lg border border-gray-800">
-                      <div className="flex-shrink-0">
-                        <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full p-3">
-                          <Star className="h-6 w-6 text-white" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-base font-bold text-white mb-1">Authorized iPhone Reseller</p>
-                        <p className="text-sm text-gray-300">Verified seller with 5000+ satisfied customers. Top-rated iPhone store in UAE.</p>
+                    <div className="text-center space-y-2">
+                      <p className="text-2xl font-black tracking-tight">100% AUTHENTIC iPHONE</p>
+                      <p className="text-base font-semibold text-gray-300">Pre-Owned in Original Condition</p>
+                      <div className="flex items-center justify-center gap-2 text-sm text-gray-400">
+                        <CheckCircle2 className="h-4 w-4 text-green-400" />
+                        <span>Original Condition & Working Perfectly</span>
+                        <span className="text-gray-600">•</span>
+                        <span>Exellent Condition</span>
                       </div>
                     </div>
                   </div>
                 </div>
+                
                 {product.description && (
                   <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 p-8 rounded-3xl border-2 border-gray-200 dark:border-gray-800 shadow-xl">
                     <div className="flex items-center gap-3 mb-6">
@@ -921,6 +765,86 @@ const ProductDetail = ({ key }: { key?: string }) => {
                     </div>
                   </div>
                 )}
+                {/* Premium iPhone Trust Features */}
+                <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 rounded-3xl p-6 shadow-xl border border-gray-200 dark:border-gray-800">
+                  <div className="flex items-center gap-2 mb-5">
+                    <Smartphone className="h-6 w-6 text-black dark:text-white" />
+                    <h3 className="text-lg font-bold text-foreground">Why Buy From Us?</h3>
+                  </div>
+                  <div className="grid grid-cols-1 gap-4">
+                    <div className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700">
+                      <div className="flex-shrink-0">
+                        <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-full p-3">
+                          <CheckCircle2 className="h-6 w-6 text-white" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-base font-bold text-foreground mb-1">100% Original Apple iPhone</p>
+                        <p className="text-sm text-muted-foreground">Pre-owned in pristine condition. Genuine parts only. Works perfectly like new.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700">
+                      <div className="flex-shrink-0">
+                        <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-full p-3">
+                          <Award className="h-6 w-6 text-white" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-base font-bold text-foreground mb-1">Store Warranty & Quality Guaranteed</p>
+                        <p className="text-sm text-muted-foreground">7-day testing warranty from our store. Phone fully tested and working perfectly.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700">
+                      <div className="flex-shrink-0">
+                        <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-full p-3">
+                          <Truck className="h-6 w-6 text-white" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-base font-bold text-foreground mb-1">Free 2-Day Delivery in UAE</p>
+                        <p className="text-sm text-muted-foreground">Track your order. Secure delivery to your doorstep.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700">
+                      <div className="flex-shrink-0">
+                        <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-full p-3">
+                          <CreditCard className="h-6 w-6 text-white" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-base font-bold text-foreground mb-1">Cash on Delivery Available</p>
+                        <p className="text-sm text-muted-foreground">Check the product, then pay. No upfront payment required.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700">
+                      <div className="flex-shrink-0">
+                        <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full p-3">
+                          <ShieldCheck className="h-6 w-6 text-white" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-base font-bold text-foreground mb-1">7-Day Easy Return Policy</p>
+                        <p className="text-sm text-muted-foreground">Changed your mind? Return within 7 days for full refund.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-black to-gray-900 dark:from-gray-950 dark:to-gray-900 rounded-2xl shadow-lg border border-gray-800">
+                      <div className="flex-shrink-0">
+                        <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full p-3">
+                          <Star className="h-6 w-6 text-white" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-base font-bold text-white mb-1">Authorized iPhone Reseller</p>
+                        <p className="text-sm text-gray-300">Verified seller with 5000+ satisfied customers. Top-rated iPhone store in UAE.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 

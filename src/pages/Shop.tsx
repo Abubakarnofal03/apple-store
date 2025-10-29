@@ -178,14 +178,14 @@ const Shop = () => {
     ? `Buy ${selectedCategoryData.name} Online in UAE | tech spot uae`
     : "Buy Authentic iPhones Online in UAE | tech spot uae";
   const pageDescription = selectedCategoryData
-    ? `Buy premium ${selectedCategoryData.name.toLowerCase()} online in UAE. Pre-owned in original condition, never refurbished. Fast delivery at techspotuae.store`
-    : "Browse authentic pre-owned iPhones in original condition, never refurbished. Fast delivery across UAE at techspotuae.store.";
+    ? `Buy premium ${selectedCategoryData.name.toLowerCase()} online in UAE. Pre-owned in original condition, Exellent condition. Fast delivery at techspotuae.store`
+    : "Browse authentic pre-owned iPhones in original condition, Exellent condition. Fast delivery across UAE at techspotuae.store.";
   const pageKeywords = selectedCategoryData?.focus_keywords || [
     'buy iphone online UAE',
     'pre-owned iphone',
     'authentic iphone',
     'iphone store UAE',
-    'never refurbished',
+    'Exellent condition',
     'buy online UAE'
   ];
 
@@ -247,7 +247,7 @@ const Shop = () => {
                 </span>
               </h1>
               <p className="text-center text-muted-foreground max-w-3xl mx-auto text-base md:text-lg px-4">
-                Pre-owned in original condition, never refurbished. Premium quality iPhones with full testing warranty.
+                Pre-owned in original condition, Exellent condition. Premium quality iPhones with full testing warranty.
               </p>
             </div>
 
@@ -257,7 +257,7 @@ const Shop = () => {
                 <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-full p-3 w-fit mx-auto mb-2">
                   <CheckCircle2 className="h-6 w-6 text-white" />
                 </div>
-                <p className="text-xs font-bold text-foreground mb-1">Never Refurbished</p>
+                <p className="text-xs font-bold text-foreground mb-1">Exellent condition</p>
                 <p className="text-xs text-muted-foreground">Original Quality</p>
               </div>
               
@@ -401,7 +401,7 @@ const Shop = () => {
                               <div className="absolute bottom-4 left-4 right-4">
                                 <div className="bg-white dark:bg-gray-900 rounded-lg p-2 mb-2">
                                   <Badge className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold text-xs justify-center py-1">
-                                    ✓ Never Refurbished
+                                    ✓ Exellent condition
                                   </Badge>
                                 </div>
                               </div>
